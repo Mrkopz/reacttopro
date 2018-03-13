@@ -6,10 +6,19 @@ import FbButton from './FbButton'
 
 class App extends Component {
   state = { like: 0, dislike: 0 }
+
+  componentWillMount(){
+    console.log('App: willMount')
+  }
+
+  componentDidMount(){
+    console.log('App: didMount')
+  }
+
   render() {
     return (
       <div>
-        <Header/>
+        <Header title="I am Header" like={this.state.like}/>
         <h4>Like : {this.state.like}</h4>        
         <h4>DisLike: {this.state.dislike}</h4>        
         <FbButton handleClick={this.onLike} caption="Like" />        
@@ -19,7 +28,20 @@ class App extends Component {
   }
 
   onLike = () => {
+    //this.setState({ like: this.state.like + 1 })
     this.setState({ like: this.state.like + 1 })
+
+    this.setState((preState, props) => {
+      return {
+        like: preState.like + 1
+      }
+    })
+
+    this.setState(preState => {
+      return {
+        like: preState.like + 1
+      }
+    })
   }
   
   onDisLike = () => {
