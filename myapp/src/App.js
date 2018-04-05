@@ -6,7 +6,8 @@ import FbButton from './FbButton'
 
 class App extends Component {
   //state = { like: 0, dislike: 0 }
-  state = { data: null }
+  //state = { data: null }
+  state = { name: '' }
 
   componentWillMount(){
     console.log('App: willMount')
@@ -44,7 +45,8 @@ class App extends Component {
       </div>
     )*/
 
-    const { data } = this.state
+    //display data from api
+    /*const { data } = this.state
     return (
       <div>
         <h1>App Page</h1>
@@ -58,7 +60,29 @@ class App extends Component {
           )
         })}
       </div>
+    )*/
+
+    return (
+      <div>
+        <h1>App Pages</h1>
+        <form>
+          <label>
+            Name:
+            < input type = "text" name ="name" placeholder= "enter Name" value ={ this.state.name } onChange = {this.handleChange}/>
+          </label>
+        </form>
+        <button onClick={this.handleClick}>Change Text</button>
+      </div>
     )
+  }
+
+  handleChange = e => {
+    this.setState({ name: e.target.value })
+    console.log(e.target.value)
+  }
+
+  handleClick = e =>{
+    this.setState({ name: "I am React"})
   }
 
   onLike = () => {
