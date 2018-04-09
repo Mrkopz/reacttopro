@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
 class User extends Component {
-    retder(){
-        return(
+    render() {
+        return (
             <div>
                 Page User for Photo
-            </div>
-        );
+            </div>)
     }
 }
 
-export default User;
+export default User
+
+

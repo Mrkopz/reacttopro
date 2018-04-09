@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import 'bulma/css/bulma.css';
+import 'bulma/css/bulma.css'
 import logo from '../logo.svg';
 
-import Header from '../components/Header/Header';
+import Header from '../components/Header/Header'
 
 class App extends Component {
   render() {
