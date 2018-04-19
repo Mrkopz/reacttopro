@@ -5,26 +5,20 @@ import registerServiceWorker from './registerServiceWorker'
 
 import { Router, browserHistory } from 'react-router'
 import routes from './routes'
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import promiseMiddleware from 'redux-promise-middleware';
+import reducers from './reducers';
 
-function countAge(state = 0, action){
-    switch(action.type){
-        case 'INCREMENT':
-            return state + 1;
-        case 'DECREMENT':
-            return state - 1;
-        default:
-            return state;
-    }
-}
 
-const store = createStore(countAge);
+/*const store = createStore(countAge);
 store.subscribe(() => { console.log('subscribe', store.getState()) });
 console.log('befor dispatch', store.getState());
 store.dispatch({
     type: 'INCREMENT'
-})
+})*/
+
+const store = createStore(reducers, applyMiddleware(promiseMiddleware()));
 
 ReactDOM.render(
     <Provider store={store}>

@@ -20,11 +20,12 @@ class Home extends Component{
         );
     }
 
-    increteAge = () => { 
-        this.setState((prevState) => { 
-            return { age: prevState.age + 1 
-            } 
-        }) 
+    /*increteAge = () => {
+        this.setState((prevState) => {
+            return {
+                age: prevState.age + 1
+            }
+        })
     }
 
     decreteAge = () => {
@@ -33,12 +34,12 @@ class Home extends Component{
                 age: prevState.age - 1
             }
         })
-    }
+    }*/
 }
 
 function mapStateToProps(state){
     return {
-        age: state
+        age: state.counter
     }
 }
 
